@@ -1,0 +1,95 @@
+@use '@angular/material' as mat;
+
+// Include the common styles for Angular Material
+@include mat.core();
+
+// Define a custom theme
+$primary: mat.define-palette(mat.$blue-palette);
+$accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$warn: mat.define-palette(mat.$red-palette);
+
+$theme: mat.define-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+@include mat.all-component-themes($theme);
+
+/* Global styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f5f5f5;
+}
+
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Common form styles */
+.form-container {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+/* Card styles */
+mat-card {
+  margin-bottom: 16px;
+  border-radius: 8px !important;
+}
+
+/* Button styles */
+button[mat-raised-button] {
+  min-width: 120px;
+}
+
+/* Form field styles */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+/* Table styles */
+.mat-mdc-table {
+  width: 100%;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Loading and error states */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.error-message {
+  color: #f44336;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .page-container {
+    padding: 10px;
+  }
+  
+  .form-container {
+    padding: 16px;
+    margin: 10px;
+  }
+}

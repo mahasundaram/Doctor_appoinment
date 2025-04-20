@@ -1,0 +1,43 @@
+<div class="doctor-details-container">
+  <mat-card *ngIf="!loading && !error && doctor">
+    <mat-card-header>
+      <mat-card-title>Dr. {{ doctor.fullName }}</mat-card-title>
+      <mat-card-subtitle>{{ doctor.specialization }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="info-section">
+        <h3>Professional Information</h3>
+        <p><strong>Experience:</strong> {{ doctor.experience }} years</p>
+        <p><strong>Available Slots:</strong></p>
+        <ul>
+          <li *ngFor="let slot of doctor.availableSlots">{{ slot }}</li>
+        </ul>
+      </div>
+
+      <div class="info-section">
+        <h3>Contact Information</h3>
+        <p>{{ doctor.contactInfo }}</p>
+      </div>
+
+      <div class="appointments-section" *ngIf="appointments.length > 0">
+        <h3>Upcoming Appointments</h3>
+        <div class="appointment-list">
+          <div class="appointment-item" *ngFor="let appointment of appointments">
+            <p><strong>Patient:</strong> {{ appointment.patientName }}</p>
+            <p><strong>Time:</strong> {{ appointment.appointmentTime }}</p>
+            <p><strong>Status:</strong> {{ appointment.status }}</p>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="bookAppointment()">Book Appointment</button>
+      <button mat-button routerLink="/doctors">Back to Doctors</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <div *ngIf="loading" class="loading-message">Loading doctor details...</div>
+  <div *ngIf="error" class="error-message">Error loading doctor details. Please try again later.</div>
+</div>

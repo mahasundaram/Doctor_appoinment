@@ -1,0 +1,22 @@
+<div class="doctor-list-container">
+  <div class="doctor-list">
+    <mat-card *ngFor="let doctor of doctors" class="doctor-card">
+      <mat-card-header>
+        <mat-card-title>{{ doctor.fullName }}</mat-card-title>
+        <mat-card-subtitle>{{ doctor.specialization }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p><strong>Experience:</strong> {{ doctor.experience }} years</p>
+        <p><strong>Available Slots:</strong> {{ doctor.availableSlots }}</p>
+        <p><strong>Contact Info:</strong> {{ doctor.contactInfo }}</p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [routerLink]="['/doctors', doctor.id]">
+          View Details
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

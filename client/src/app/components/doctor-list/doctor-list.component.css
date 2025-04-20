@@ -1,0 +1,87 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-button {
+  text-decoration: none;
+  background: #1976d2;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background: #1565c0;
+}
+
+.doctor-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* src/app/components/doctor-list/doctor-list.component.css */
+
+.doctor-list-container {
+  padding: 20px;
+}
+
+.doctor-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.doctor-card {
+  width: 300px;
+  min-height: 200px;
+}
+
+
+
+
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.doctor-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  width: 250px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  height: 100%;
+}
+
+mat-card-header {
+  margin-bottom: 16px;
+}
+
+mat-card-content {
+  margin-bottom: 16px;
+}
+
+mat-card-content p {
+  margin: 8px 0;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.no-data {
+  text-align: center;
+  color: #666;
+  margin: 40px 0;
+  font-size: 1.2em;
+}

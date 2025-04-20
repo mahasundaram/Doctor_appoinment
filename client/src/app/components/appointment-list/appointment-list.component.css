@@ -1,0 +1,42 @@
+.appointment-container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
+.details {
+  flex: 1;
+}
+
+.details p {
+  margin: 8px 0;
+}
+
+mat-list {
+  padding: 0;
+}
+
+mat-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto !important;
+  margin-bottom: 16px;
+}
+
+button {
+  margin-left: 16px;
+}

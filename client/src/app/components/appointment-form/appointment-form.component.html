@@ -1,0 +1,64 @@
+<div class="form-container">
+  <h2>Book an Appointment</h2>
+
+  <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Patient Name</mat-label>
+      <input matInput formControlName="patientName" placeholder="Enter patient name">
+      <mat-error *ngIf="appointmentForm.get('patientName')?.hasError('required')">
+        Patient name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Select Doctor</mat-label>
+      <mat-select formControlName="doctorId">
+         <mat-option *ngFor="let doctor of doctors" [value]="doctor.id">
+          {{ doctor.fullName }} 
+          <!-- - {{ doctor.specialty }} -->
+        </mat-option>  
+      </mat-select>
+      <mat-error *ngIf="appointmentForm.get('doctorId')?.hasError('required')">
+        Please select a doctor
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Appointment Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="appointmentDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="appointmentForm.get('appointmentDate')?.hasError('required')">
+        Appointment date is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Appointment Time</mat-label>
+      <input matInput type="time" formControlName="appointmentTime">
+      <mat-error *ngIf="appointmentForm.get('appointmentTime')?.hasError('required')">
+        Appointment time is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Reason for Visit</mat-label>
+      <textarea matInput formControlName="contactInfo" rows="3"></textarea>
+      <mat-error *ngIf="appointmentForm.get('contactInfo')?.hasError('required')">
+        Reason for visit is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Additional Notes</mat-label>
+      <textarea matInput formControlName="notes" rows="2"></textarea>
+    </mat-form-field>
+
+    <div class="form-actions">
+      <button mat-button type="button" routerLink="/appointments">Cancel</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!appointmentForm.valid">
+        Book Appointment
+      </button>
+    </div>
+  </form>
+</div>

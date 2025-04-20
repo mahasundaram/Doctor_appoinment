@@ -1,0 +1,38 @@
+<div class="form-container">
+  <h2>Add New Doctor</h2>
+  <form [formGroup]="doctorForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Full Name</mat-label>
+      <input matInput formControlName="fullName" placeholder="Enter full name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Specialization</mat-label>
+      <input matInput formControlName="specialization" placeholder="Enter specialization" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Experience (Years)</mat-label>
+      <input matInput type="number" formControlName="experience" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Available Slots</mat-label>
+      <mat-select formControlName="availableSlots" multiple>
+        <mat-option *ngFor="let day of days" [value]="day">{{ day }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Contact Info</mat-label>
+      <textarea matInput formControlName="contactInfo"></textarea>
+    </mat-form-field>
+
+    <div class="form-actions">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!doctorForm.valid">
+        Add Doctor 
+      </button>
+    
+    </div>
+  </form>
+</div>

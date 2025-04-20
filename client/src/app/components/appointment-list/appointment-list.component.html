@@ -1,0 +1,23 @@
+<div class="appointment-container">
+  <h2>All Appointments!</h2>
+  <mat-list *ngIf="appointments.length > 0; else noData">
+    <mat-list-item *ngFor="let app of appointments" class="appointment-item">
+      <div class="details">
+        <p><strong>Doctor:</strong> {{ app.doctorId }}</p>
+        <p><strong>Patient:</strong> {{ app.patientName }}</p>
+        <p><strong>Slot:</strong> {{ app.appointmentDate }}</p>
+        <p><strong>Contact:</strong> {{ app.contact }}</p>
+      </div>
+      <button mat-button color="warn" (click)="cancelAppointment(app.id)">
+        Cancel
+      </button>
+     <!-- < <button mat-button color="warn" (click)="updateAppointmentStatus(app.id)">
+        Approve
+      </button>> -->
+    </mat-list-item>
+  </mat-list>
+
+  <ng-template #noData>
+    <p>No appointments available.</p>
+  </ng-template>
+</div>
