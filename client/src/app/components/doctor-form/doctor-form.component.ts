@@ -17,6 +17,17 @@ export class DoctorFormComponent {
   doctorForm: FormGroup;
   days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
+  // Dropdown options for specialization
+  specializations: string[] = [
+    'General Physician',
+    'Dentist',
+    'Cardiologist',
+    'Neurologist',
+    'Dermatologist',
+    'Pediatrician',
+    'Gynecologist'
+  ];
+
   constructor(
     private fb: FormBuilder,
     private doctorService: DoctorService,
@@ -24,9 +35,9 @@ export class DoctorFormComponent {
   ) {
     this.doctorForm = this.fb.group({
       fullName: ['', Validators.required],
-      specialization: ['', Validators.required],
+      specialization: ['', Validators.required], // Dropdown binding
       experience: [0, [Validators.required, Validators.min(0)]],
-      availableSlots: [[], Validators.required],
+      availableSlots: [[], Validators.required], // Assume checkbox or multiselect in template
       contactInfo: ['', Validators.required]
     });
   }
@@ -36,9 +47,11 @@ export class DoctorFormComponent {
       const formValue = this.doctorForm.value;
       const doctorPayload = {
         ...formValue,
-        availableSlots: JSON.stringify(formValue.availableSlots)
+        availableSlots: JSON.stringify(formValue.availableSlots) // Convert array to JSON string
       };
+
       this.doctorService.createDoctor(doctorPayload).subscribe(() => {
+        alert('Doctor added successfully!');
         this.router.navigate(['/doctors']);
       });
     }

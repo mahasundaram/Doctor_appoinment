@@ -8,8 +8,13 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Specialization</mat-label>
-      <input matInput formControlName="specialization" placeholder="Enter specialization" />
+      <mat-select formControlName="specialization" placeholder="Select specialization">
+        <mat-option *ngFor="let spec of specializations" [value]="spec">
+          {{ spec }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
+    
 
     <mat-form-field appearance="outline">
       <mat-label>Experience (Years)</mat-label>
