@@ -36,7 +36,19 @@ export class AppointmentListComponent implements OnInit {
       }
     });
   }
-
+  statusLoad(id: number): void {
+    const appointment = this.appointments.find(app => app.id === id);
+    if (appointment) {
+      const updatedAppointment = { ...appointment, status: 'confirmed' }; // Example update
+      this.appointmentService.updateAppointment(id, updatedAppointment).subscribe(() => {
+        alert('Appointment updated.');
+        this.fetchAppointments();
+      });
+    } else {
+      alert('Appointment not found.');
+    }
+  }
+  
   cancelAppointment(id: number): void {
     if (confirm('Are you sure you want to cancel this appointment?')) {
       this.appointmentService.deleteAppointment(id).subscribe(() => {

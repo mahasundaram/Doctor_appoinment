@@ -19,11 +19,14 @@ export class AppointmentService {
     return this.http.get<Appointment>(`${this.apiUrl}/${id}`);
   }
 
+  updateAppointment(id: number, appointment: Partial<Appointment>): Observable<Appointment> {
+    return this.http.put<Appointment>(`${this.apiUrl}/${id}`, appointment);
+  }
   createAppointment(appointment: Omit<Appointment, 'id'>): Observable<Appointment> {
     return this.http.post<Appointment>(this.apiUrl, appointment);
   }
 
-  updateAppointment(id: number, appointment: Partial<Appointment>): Observable<Appointment> {
+  AppointmentService(id: number, appointment: Partial<Appointment>): Observable<Appointment> {
     return this.http.put<Appointment>(`${this.apiUrl}/${id}`, appointment);
   }
 

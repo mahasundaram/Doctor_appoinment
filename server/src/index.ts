@@ -14,5 +14,5 @@ app.use('/api/doctors', doctorRoutes);
 app.use('/api/appointments', appointmentRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
+  console.log(`Server is running at http://localhost:3000/api/doctors`);
 });

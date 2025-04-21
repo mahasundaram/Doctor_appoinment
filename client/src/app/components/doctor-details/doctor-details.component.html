@@ -5,7 +5,7 @@
       <mat-card-subtitle>{{ doctor.specialization }}</mat-card-subtitle>
     </mat-card-header>
 
-    <mat-card-content>
+    <mat-card-content> 
       <div class="info-section">
         <h3>Professional Information</h3>
         <p><strong>Experience:</strong> {{ doctor.experience }} years</p>
@@ -39,5 +39,5 @@
   </mat-card>
 
   <div *ngIf="loading" class="loading-message">Loading doctor details...</div>
-  <div *ngIf="error" class="error-message">Error loading doctor details. Please try again later.</div>
+  <!-- <div *ngIf="error" class="error-message">Error loading doctor details. Please try again later.</div> -->
 </div>

@@ -18,7 +18,7 @@ export const createAppointment = (req: Request, res: Response) => {
   });
 };
 
-export const updateAppointmentStatus = (req: Request, res: Response) => {
+export const updateAppointment = (req: Request, res: Response) => {
   const { id } = req.params;
   const { status } = req.body;
   const query = 'UPDATE appointments SET status=? WHERE id=?';

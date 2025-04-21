@@ -15,7 +15,7 @@
       <mat-select formControlName="doctorId">
          <mat-option *ngFor="let doctor of doctors" [value]="doctor.id">
           {{ doctor.fullName }} 
-          <!-- - {{ doctor.specialty }} -->
+          
         </mat-option>  
       </mat-select>
       <mat-error *ngIf="appointmentForm.get('doctorId')?.hasError('required')">
